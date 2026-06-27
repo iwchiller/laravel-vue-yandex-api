@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\MapObject;
 use App\Services\MapObjectService;
 
 class MapObjectController extends Controller
