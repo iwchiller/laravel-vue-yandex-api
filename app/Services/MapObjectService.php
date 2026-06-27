@@ -81,7 +81,8 @@ class MapObjectService {
 
         $this->response = Http::withOptions([
             'verify' => false,
-            'allow_redirects' => false
+            'allow_redirects' => false,
+            'crypto_method' => null,
         ])->get($this->url);
 
         if ($this->response->redirect()) {
@@ -145,6 +146,7 @@ class MapObjectService {
         $this->response = Http::withOptions([
             'verify' => false,
             'allow_redirects' => false,
+            'crypto_method' => null,
         ])->get($this->widget_request_full);
 
 //        Log::error($this->response->status());
@@ -212,7 +214,8 @@ class MapObjectService {
         $this->response = Http::withOptions([
             'verify' => false,
             'allow_redirects' => true,
-            'cookies' => $this->cookies
+            'cookies' => $this->cookies,
+            'crypto_method' => null,
         ])->get($this->api_request_header);
 
         if (!$this->response->ok()) {
@@ -241,7 +244,8 @@ class MapObjectService {
         $this->response = Http::withOptions([
             'verify' => false,
             'allow_redirects' => false,
-            'cookies' => $this->cookies
+            'cookies' => $this->cookies,
+            'crypto_method' => null,
         ])->get($this->api_request_full);
         if (!$this->response->ok()) {
             $this->object_result->errors = ['http_get_api_reviews()' => ['Request does not return a code of 200']];
